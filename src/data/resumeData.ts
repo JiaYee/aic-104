@@ -1,11 +1,13 @@
 /**
- * resumeData.js
+ * resumeData.ts
  * --------------
  * Central place for all placeholder resume content.
  * Workshop students: edit this file to personalize the app with your own info.
  */
 
-export const profile = {
+import type { Profile, Role, SkillGroup } from '../types/resume';
+
+export const profile: Profile = {
   name: 'Tai Jia Yee',
   title: 'Lead AI Engineer',
   bio:
@@ -17,10 +19,8 @@ export const profile = {
   phone: 'wa.me/60107789729',
 };
 
-/**
- * Skills grouped by years of experience — easy to scan on the Experience screen.
- */
-export const skills = [
+/** Skills grouped by years of experience — easy to scan on the Experience screen. */
+export const skills: SkillGroup[] = [
   {
     category: '9 Years Experience',
     items: [
@@ -55,10 +55,8 @@ export const skills = [
   },
 ];
 
-/**
- * Past roles — newest first, matching a typical CV layout.
- */
-export const roles = [
+/** Past roles — newest first, matching a typical CV layout. */
+export const roles: Role[] = [
   {
     title: 'Lead AI Engineer',
     company: 'The Employees Provident Fund (EPF)',
@@ -78,7 +76,7 @@ export const roles = [
     highlights: [
       'Led 1 backend engineer and 1 QA engineer.',
       'Reported to manager in Palo Alto, California, USA.',
-      'Liaised with vendors in Xi\'An, Shaanxi, China.',
+      "Liaised with vendors in Xi'An, Shaanxi, China.",
     ],
   },
   {

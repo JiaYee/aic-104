@@ -1,8 +1,8 @@
 /**
- * ExperienceScreen.js
- * --------------------
+ * ExperienceScreen.tsx
+ * -----------------------
  * Lists skills and past roles using basic View and Text components.
- * Data is imported from resumeData.js so students only edit one file.
+ * Data is imported from resumeData.ts so students only edit one file.
  */
 
 import { ScrollView, StyleSheet, Text, View } from 'react-native';

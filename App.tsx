@@ -1,6 +1,6 @@
 /**
- * App.js — Entry point for the Resume/CV starter app.
- * All navigation logic lives in src/navigation/AppNavigator.js.
+ * App.tsx — Entry point for the Resume/CV starter app.
+ * All navigation logic lives in src/navigation/AppNavigator.tsx.
  */
 
 import { StatusBar } from 'expo-status-bar';

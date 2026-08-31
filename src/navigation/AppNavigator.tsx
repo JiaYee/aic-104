@@ -1,6 +1,6 @@
 /**
- * AppNavigator.js
- * ----------------
+ * AppNavigator.tsx
+ * -----------------
  * Sets up React Navigation with a native stack for two screens:
  *   1. Profile (home)
  *   2. Experience
@@ -10,9 +10,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProfileScreen from '../screens/ProfileScreen';
 import ExperienceScreen from '../screens/ExperienceScreen';
+import type { RootStackParamList } from '../types/navigation';
 import { colors } from '../styles/theme';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
   return (

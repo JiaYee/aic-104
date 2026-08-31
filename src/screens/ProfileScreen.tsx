@@ -1,15 +1,19 @@
 /**
- * ProfileScreen.js
- * -----------------
+ * ProfileScreen.tsx
+ * ------------------
  * Home screen showing a profile photo placeholder, name, bio, and a button
  * that navigates to the Experience screen.
  */
 
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { profile } from '../data/resumeData';
+import type { RootStackParamList } from '../types/navigation';
 import { colors, spacing } from '../styles/theme';
 
-export default function ProfileScreen({ navigation }) {
+type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+
+export default function ProfileScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       {/* Profile section — centered vertically using Flexbox */}
