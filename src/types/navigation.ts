@@ -8,5 +8,6 @@
 export type RootTabParamList = {
   Profile: undefined;
   Skills: undefined;
+  Languages: undefined;
   Work: undefined;
 };

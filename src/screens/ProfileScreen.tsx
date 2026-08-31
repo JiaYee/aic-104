@@ -7,6 +7,7 @@
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/text';
 import { profile } from '@/data/resumeData';
+import { Link2, Mail, MessageCircle } from 'lucide-react-native';
 import { Image, Linking, View } from 'react-native';
 
 /** Opens a URL in the device mail app, browser, or WhatsApp. */
@@ -36,29 +37,39 @@ export default function ProfileScreen() {
         </Text>
       </View>
 
-      {/* Contact CTAs — prominent buttons for reaching out */}
-      <View className="gap-3">
-        <Text variant="small" className="mb-1 text-center uppercase tracking-wider text-muted-foreground">
+      {/* Contact CTAs — three buttons in one row */}
+      <View>
+        <Text variant="small" className="mb-3 text-center uppercase tracking-wider text-muted-foreground">
           Get in touch
         </Text>
-        <Button
-          label="Email Me"
-          size="lg"
-          onPress={() => openLink(`mailto:${profile.email}`)}
-          accessibilityLabel={`Send email to ${profile.email}`}
-        />
-        <Button
-          variant="outline"
-          label="Connect on LinkedIn"
-          onPress={() => openLink(`https://${profile.linkedin}`)}
-          accessibilityLabel="Open LinkedIn profile"
-        />
-        <Button
-          variant="secondary"
-          label="WhatsApp Me"
-          onPress={() => openLink(`https://${profile.phone}`)}
-          accessibilityLabel="Open WhatsApp chat"
-        />
+        <View className="flex-row gap-2">
+          <Button
+            className="flex-1"
+            label="Email"
+            size="stacked"
+            icon={<Mail size={20} color="#FFFFFF" strokeWidth={2} />}
+            onPress={() => openLink(`mailto:${profile.email}`)}
+            accessibilityLabel={`Send email to ${profile.email}`}
+          />
+          <Button
+            className="flex-1"
+            variant="outline"
+            label="LinkedIn"
+            size="stacked"
+            icon={<Link2 size={20} color="hsl(221 83% 53%)" strokeWidth={2} />}
+            onPress={() => openLink(`https://${profile.linkedin}`)}
+            accessibilityLabel="Open LinkedIn profile"
+          />
+          <Button
+            className="flex-1"
+            variant="secondary"
+            label="WhatsApp"
+            size="stacked"
+            icon={<MessageCircle size={20} color="hsl(222 47% 11%)" strokeWidth={2} />}
+            onPress={() => openLink(`https://${profile.phone}`)}
+            accessibilityLabel="Open WhatsApp chat"
+          />
+        </View>
       </View>
     </View>
   );

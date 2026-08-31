@@ -1,16 +1,17 @@
 /**
  * AppNavigator.tsx
  * -----------------
- * Bottom tab navigator: Profile, Skills, Work (timeline).
+ * Bottom tab navigator: Profile, Skills, Languages, Work.
  */
 
+import LanguagesScreen from '@/screens/LanguagesScreen';
 import ProfileScreen from '@/screens/ProfileScreen';
 import SkillsScreen from '@/screens/SkillsScreen';
 import WorkExperienceScreen from '@/screens/WorkExperienceScreen';
 import type { RootTabParamList } from '@/types/navigation';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, type Theme } from '@react-navigation/native';
-import { Briefcase, Sparkles, UserRound } from 'lucide-react-native';
+import { Briefcase, Code2, Languages, UserRound } from 'lucide-react-native';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -73,7 +74,17 @@ export default function AppNavigator() {
           options={{
             title: 'Skills',
             tabBarIcon: ({ color, size, focused }) => (
-              <Sparkles color={color} size={size} strokeWidth={focused ? 2.5 : 2} />
+              <Code2 color={color} size={size} strokeWidth={focused ? 2.5 : 2} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Languages"
+          component={LanguagesScreen}
+          options={{
+            title: 'Languages',
+            tabBarIcon: ({ color, size, focused }) => (
+              <Languages color={color} size={size} strokeWidth={focused ? 2.5 : 2} />
             ),
           }}
         />

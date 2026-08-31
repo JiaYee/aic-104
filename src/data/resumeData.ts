@@ -5,7 +5,7 @@
  * Workshop students: edit this file to personalize the app with your own info.
  */
 
-import type { Profile, Role, SkillGroup } from '../types/resume';
+import type { Language, Profile, Role, TechnicalSkill } from '../types/resume';
 
 export const profile: Profile = {
   name: 'Tai Jia Yee',
@@ -19,40 +19,29 @@ export const profile: Profile = {
   phone: 'wa.me/60107789729',
 };
 
-/** Skills grouped by years of experience — easy to scan on the Experience screen. */
-export const skills: SkillGroup[] = [
-  {
-    category: '9 Years Experience',
-    items: [
-      'Angular',
-      'TypeScript',
-      'JavaScript',
-      'MySQL',
-      'NoSQL',
-      'Google Cloud Platform (GCP)',
-    ],
-  },
-  {
-    category: '2 Years Experience',
-    items: [
-      'ReactJS',
-      'NextJS',
-      'NodeJS',
-      'Python',
-      'FastAPI',
-      'Amazon Web Services (AWS)',
-      'React Native',
-    ],
-  },
-  {
-    category: 'Languages',
-    items: [
-      'Chinese (Native)',
-      'Cantonese (Native)',
-      'English (Professional)',
-      'Malay (Professional)',
-    ],
-  },
+/** Combined technical skills with years of experience (9yr + 2yr stacks merged). */
+export const technicalSkills: TechnicalSkill[] = [
+  { name: 'Angular', years: 9 },
+  { name: 'TypeScript', years: 9 },
+  { name: 'JavaScript', years: 9 },
+  { name: 'MySQL', years: 9 },
+  { name: 'NoSQL', years: 9 },
+  { name: 'Google Cloud Platform (GCP)', years: 9 },
+  { name: 'ReactJS', years: 2 },
+  { name: 'NextJS', years: 2 },
+  { name: 'NodeJS', years: 2 },
+  { name: 'Python', years: 2 },
+  { name: 'FastAPI', years: 2 },
+  { name: 'Amazon Web Services (AWS)', years: 2 },
+  { name: 'React Native', years: 2 },
+];
+
+/** Spoken languages — shown on the Languages tab with proficiency bars. */
+export const languages: Language[] = [
+  { name: 'Chinese', level: 'Native', proficiency: 100, initial: '中' },
+  { name: 'Cantonese', level: 'Native', proficiency: 100, initial: '粤' },
+  { name: 'English', level: 'Professional', proficiency: 85, initial: 'EN' },
+  { name: 'Malay', level: 'Professional', proficiency: 80, initial: 'MY' },
 ];
 
 /** Past roles — newest first, matching a typical CV layout. */

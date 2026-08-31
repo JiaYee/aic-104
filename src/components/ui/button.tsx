@@ -19,6 +19,8 @@ const buttonVariants = cva(
         default: 'h-11 px-5 py-2',
         sm: 'h-9 rounded-md px-3',
         lg: 'h-12 rounded-md px-8',
+        /** Icon above label — height grows with content */
+        stacked: 'h-auto min-h-[4.5rem] flex-col gap-1.5 rounded-md px-2 py-3',
       },
     },
     defaultVariants: {
@@ -45,19 +47,29 @@ const buttonTextVariants = cva('text-sm font-medium', {
 type ButtonProps = PressableProps &
   VariantProps<typeof buttonVariants> & {
     label: string;
+    icon?: React.ReactNode;
     asChild?: boolean;
   };
 
-function Button({ className, variant, size, label, asChild = false, ...props }: ButtonProps) {
+function Button({
+  className,
+  variant,
+  size,
+  label,
+  icon,
+  asChild = false,
+  ...props
+}: ButtonProps) {
   const Component = asChild ? Slot.Pressable : Pressable;
   return (
     <TextClassContext.Provider value={buttonTextVariants({ variant })}>
       <Component
-        className={cn(buttonVariants({ variant, size }), className)}
+        className={cn(buttonVariants({ variant, size }), 'gap-2', className)}
         role="button"
         {...props}
       >
-        <Text>{label}</Text>
+        {icon}
+        <Text className={cn(icon ? 'text-center text-xs' : undefined)}>{label}</Text>
       </Component>
     </TextClassContext.Provider>
   );
