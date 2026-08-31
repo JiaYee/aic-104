@@ -104,21 +104,6 @@ export default function ExperienceBarChart({ data }: Props) {
       {tiers.map((tier) => (
         <TierSection key={tier.years} tier={tier} />
       ))}
-
-      <View className="mt-4 flex-row justify-center gap-4 border-t border-border pt-3">
-        <View className="flex-row items-center gap-1.5">
-          <View className="h-2 w-6 rounded-full bg-primary" />
-          <Text variant="muted" className="text-xs">
-            9+ years
-          </Text>
-        </View>
-        <View className="flex-row items-center gap-1.5">
-          <View className="h-2 w-6 rounded-full bg-accent" />
-          <Text variant="muted" className="text-xs">
-            2 years
-          </Text>
-        </View>
-      </View>
     </View>
   );
 }
