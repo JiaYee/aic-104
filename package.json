@@ -3,16 +3,27 @@
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^7.18.18",
     "@react-navigation/native": "^7.3.18",
     "@react-navigation/native-stack": "^7.18.10",
-    "@types/react": "~19.2.4",
-    "expo": "~57.0.18",
-    "expo-status-bar": "~57.0.1",
-    "react": "19.2.3",
-    "react-native": "0.86.3",
-    "react-native-safe-area-context": "~5.7.0",
-    "react-native-screens": "~4.26.0",
-    "typescript": "~6.0.3"
+    "@rn-primitives/portal": "^1.5.3",
+    "@rn-primitives/slot": "^1.5.2",
+    "@types/react": "~19.1.10",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "expo": "^54.0.0",
+    "expo-status-bar": "~3.0.9",
+    "lucide-react-native": "^1.38.0",
+    "nativewind": "^4.2.6",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-reanimated": "~4.1.1",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.16.0",
+    "react-native-svg": "15.12.1",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "~5.9.2"
   },
   "scripts": {
     "start": "expo start",
@@ -20,5 +31,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
 }

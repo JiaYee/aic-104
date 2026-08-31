@@ -1,122 +1,65 @@
 /**
  * ProfileScreen.tsx
  * ------------------
- * Home screen showing a profile photo placeholder, name, bio, and a button
- * that navigates to the Experience screen.
+ * Home tab with profile info and contact CTAs (email, LinkedIn, WhatsApp).
  */
 
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import { profile } from '../data/resumeData';
-import type { RootStackParamList } from '../types/navigation';
-import { colors, spacing } from '../styles/theme';
+import { Button } from '@/components/ui/button';
+import { Text } from '@/components/ui/text';
+import { profile } from '@/data/resumeData';
+import { Image, Linking, View } from 'react-native';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+/** Opens a URL in the device mail app, browser, or WhatsApp. */
+function openLink(url: string) {
+  Linking.openURL(url);
+}
 
-export default function ProfileScreen({ navigation }: Props) {
+export default function ProfileScreen() {
   return (
-    <View style={styles.container}>
-      {/* Profile section — centered vertically using Flexbox */}
-      <View style={styles.profileSection}>
-        {/* Placeholder avatar — replace uri with your own photo URL or local asset */}
+    <View className="flex-1 justify-between bg-background px-6 py-8">
+      {/* Profile section — centered using Flexbox */}
+      <View className="flex-1 items-center justify-center">
         <Image
-          style={styles.avatar}
-          source={{
-            uri: 'https://via.placeholder.com/150/2563EB/FFFFFF?text=TJY',
-          }}
-          accessibilityLabel="Profile photo placeholder"
+          className="mb-4 h-[120px] w-[120px] rounded-full border-2 border-border bg-muted"
+          source={require('../../assets/profile.jpg')}
+          accessibilityLabel="Profile photo of Tai Jia Yee"
         />
 
-        <Text style={styles.name}>{profile.name}</Text>
-        <Text style={styles.title}>{profile.title}</Text>
-        <Text style={styles.bio}>{profile.bio}</Text>
-
-        {/* Contact links — simple text rows for beginners to customize */}
-        <View style={styles.contactRow}>
-          <Text style={styles.contactText}>{profile.email}</Text>
-        </View>
-        <View style={styles.contactRow}>
-          <Text style={styles.contactText}>{profile.linkedin}</Text>
-        </View>
+        <Text variant="h1" className="mb-1 text-center">
+          {profile.name}
+        </Text>
+        <Text variant="large" className="mb-4 text-center text-primary">
+          {profile.title}
+        </Text>
+        <Text variant="p" className="mb-6 px-2 text-center text-muted-foreground">
+          {profile.bio}
+        </Text>
       </View>
 
-      {/* Navigation button — Pressable gives touch feedback out of the box */}
-      <Pressable
-        style={({ pressed }) => [
-          styles.button,
-          pressed && styles.buttonPressed,
-        ]}
-        onPress={() => navigation.navigate('Experience')}
-      >
-        <Text style={styles.buttonText}>View Experience</Text>
-      </Pressable>
+      {/* Contact CTAs — prominent buttons for reaching out */}
+      <View className="gap-3">
+        <Text variant="small" className="mb-1 text-center uppercase tracking-wider text-muted-foreground">
+          Get in touch
+        </Text>
+        <Button
+          label="Email Me"
+          size="lg"
+          onPress={() => openLink(`mailto:${profile.email}`)}
+          accessibilityLabel={`Send email to ${profile.email}`}
+        />
+        <Button
+          variant="outline"
+          label="Connect on LinkedIn"
+          onPress={() => openLink(`https://${profile.linkedin}`)}
+          accessibilityLabel="Open LinkedIn profile"
+        />
+        <Button
+          variant="secondary"
+          label="WhatsApp Me"
+          onPress={() => openLink(`https://${profile.phone}`)}
+          accessibilityLabel="Open WhatsApp chat"
+        />
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.xl,
-    justifyContent: 'space-between',
-  },
-  profileSection: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  avatar: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    marginBottom: spacing.md,
-    backgroundColor: colors.border,
-  },
-  name: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: colors.text,
-    marginBottom: spacing.xs,
-    textAlign: 'center',
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.primary,
-    marginBottom: spacing.md,
-    textAlign: 'center',
-  },
-  bio: {
-    fontSize: 15,
-    lineHeight: 22,
-    color: colors.textMuted,
-    textAlign: 'center',
-    marginBottom: spacing.lg,
-    paddingHorizontal: spacing.sm,
-  },
-  contactRow: {
-    marginBottom: spacing.xs,
-  },
-  contactText: {
-    fontSize: 13,
-    color: colors.accent,
-    textAlign: 'center',
-  },
-  button: {
-    backgroundColor: colors.primary,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.xl,
-    borderRadius: 12,
-    alignItems: 'center',
-  },
-  buttonPressed: {
-    backgroundColor: colors.primaryDark,
-  },
-  buttonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-});

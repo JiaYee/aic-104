@@ -2,10 +2,11 @@
  * navigation.ts
  * --------------
  * Type definitions for React Navigation routes.
- * Add new screen names here when you extend the app.
+ * Add new tab or screen names here when you extend the app.
  */
 
-export type RootStackParamList = {
+export type RootTabParamList = {
   Profile: undefined;
-  Experience: undefined;
+  Skills: undefined;
+  Work: undefined;
 };
